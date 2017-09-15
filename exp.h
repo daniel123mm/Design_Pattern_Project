@@ -39,7 +39,7 @@ TEST (Shapes, createTriangle) {
     Triangle tri(vertex_4, vertex_5, vertex_6);
     FAIL() << "It's not a triangle.";
   } catch (std::string msg) {
-    EXPECT_TRUE(msg == std::string("It's not a triangle."));
+    EXPECT_TRUE(msg == std::string("It's not a triangle.")); 
   }
 }
   
