@@ -8,22 +8,16 @@ std::list<Shape *> shapesList;
 Rectangle rect(0, 0, 5, 5, "rect");
 Circle cir0(0, 0, 5, "cir0");
 Triangle tri(vertex{2, 0}, vertex{0, 3}, vertex{0, 1}, "tri");
+
 void init(){
-	/*
-	Rectangle rect(0, 0, 5, 5, "rect");
-
-	Circle cir0(0, 0, 5, "cir0");
-
-	Triangle tri(vertex{2, 0}, vertex{0, 3}, vertex{0, 1}, "tri");
-*/
-	//std::list<Shape *> shapesList;
 	shapesList.push_back(&cir0);
 	shapesList.push_back(&rect);
 	shapesList.push_back(&tri);
-
 }
+
 TEST (Sort, sortByIncreasingPerimeter) {
 	init();
+	
 	Sort::sortByIncreasingPerimeter(&shapesList);
 
 	std::list<Shape *>::iterator it;
@@ -34,20 +28,6 @@ TEST (Sort, sortByIncreasingPerimeter) {
 }
 
 TEST (Sort, sortByDecreasingPerimeter) {
-	/*
-	Rectangle rect(0, 0, 5, 5, "rect");
-
-	Circle cir0(0, 0, 5, "cir0");
-
-
-	Triangle tri(vertex{ 2, 0 }, vertex{ 0, 3 }, vertex{ 0, 1 }, "tri");
-
-
-	std::list<Shape *> shapesList;
-	shapesList.push_back(&cir0);
-	shapesList.push_back(&rect);
-	shapesList.push_back(&tri);
-*/
 	Sort::sortByDecreasingPerimeter(&shapesList);
 
 	std::list<Shape *>::iterator it;
@@ -58,20 +38,6 @@ TEST (Sort, sortByDecreasingPerimeter) {
 }
 
 TEST (Sort, sortByIncreasingArea) {
-	/*
-	Rectangle rect(0, 0, 5, 5, "rect");
-
-	Circle cir0(0, 0, 5, "cir0");
-
-	Triangle tri(vertex{ 2, 0 }, vertex{ 0, 3 }, vertex{ 0, 1 }, "tri");
-
-
-	std::list<Shape *> shapesList;
-	shapesList.push_back(&cir0);
-	shapesList.push_back(&rect);
-	shapesList.push_back(&tri);
-	*/
-
 	Sort::sortByIncreasingArea(&shapesList);
 
 	std::list<Shape *>::iterator it;
@@ -82,20 +48,6 @@ TEST (Sort, sortByIncreasingArea) {
 }
 
 TEST (Sort, sortByDecreasingArea) {
-	/*
-	Rectangle rect(0, 0, 5, 5, "rect");
-
-	Circle cir0(0, 0, 5, "cir0");
-
-
-	Triangle tri(vertex{ 2, 0 }, vertex{ 0, 3 }, vertex{ 0, 1 }, "tri");
-
-
-	std::list<Shape *> shapesList;
-	shapesList.push_back(&cir0);
-	shapesList.push_back(&rect);
-	shapesList.push_back(&tri);
-*/
 	Sort::sortByDecreasingArea(&shapesList);
 
 	std::list<Shape *>::iterator it;
@@ -106,20 +58,6 @@ TEST (Sort, sortByDecreasingArea) {
 }
 
 TEST (Sort, sortByIncreasingCompactness) {
-	/*
-	Rectangle rect(0, 0, 5, 5, "rect");
-
-	Circle cir0(0, 0, 5, "cir0");
-
-
-	Triangle tri(vertex{ 2, 0 }, vertex{ 0, 3 }, vertex{ 0, 1 }, "tri");
-
-	std::list<Shape *> shapesList;
-	shapesList.push_back(&cir0);
-	shapesList.push_back(&rect);
-	shapesList.push_back(&tri);
-*/
-
 	Sort::sortByIncreasingCompactness(&shapesList);
 	
 	std::list<Shape *>::iterator it;
