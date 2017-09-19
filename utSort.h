@@ -4,18 +4,26 @@
 #include "include/Media.h"
 #include "include/Sort.h"
 
-TEST (Sort, sortByIncreasingPerimeter) {
+std::list<Shape *> shapesList;
+Rectangle rect(0, 0, 5, 5, "rect");
+Circle cir0(0, 0, 5, "cir0");
+Triangle tri(vertex{2, 0}, vertex{0, 3}, vertex{0, 1}, "tri");
+void init(){
+	/*
 	Rectangle rect(0, 0, 5, 5, "rect");
 
 	Circle cir0(0, 0, 5, "cir0");
 
 	Triangle tri(vertex{2, 0}, vertex{0, 3}, vertex{0, 1}, "tri");
-
-	std::list<Shape *> shapesList;
+*/
+	//std::list<Shape *> shapesList;
 	shapesList.push_back(&cir0);
 	shapesList.push_back(&rect);
 	shapesList.push_back(&tri);
 
+}
+TEST (Sort, sortByIncreasingPerimeter) {
+	init();
 	Sort::sortByIncreasingPerimeter(&shapesList);
 
 	std::list<Shape *>::iterator it;
@@ -26,6 +34,7 @@ TEST (Sort, sortByIncreasingPerimeter) {
 }
 
 TEST (Sort, sortByDecreasingPerimeter) {
+	/*
 	Rectangle rect(0, 0, 5, 5, "rect");
 
 	Circle cir0(0, 0, 5, "cir0");
@@ -38,7 +47,7 @@ TEST (Sort, sortByDecreasingPerimeter) {
 	shapesList.push_back(&cir0);
 	shapesList.push_back(&rect);
 	shapesList.push_back(&tri);
-
+*/
 	Sort::sortByDecreasingPerimeter(&shapesList);
 
 	std::list<Shape *>::iterator it;
@@ -49,6 +58,7 @@ TEST (Sort, sortByDecreasingPerimeter) {
 }
 
 TEST (Sort, sortByIncreasingArea) {
+	/*
 	Rectangle rect(0, 0, 5, 5, "rect");
 
 	Circle cir0(0, 0, 5, "cir0");
@@ -60,6 +70,7 @@ TEST (Sort, sortByIncreasingArea) {
 	shapesList.push_back(&cir0);
 	shapesList.push_back(&rect);
 	shapesList.push_back(&tri);
+	*/
 
 	Sort::sortByIncreasingArea(&shapesList);
 
@@ -71,6 +82,7 @@ TEST (Sort, sortByIncreasingArea) {
 }
 
 TEST (Sort, sortByDecreasingArea) {
+	/*
 	Rectangle rect(0, 0, 5, 5, "rect");
 
 	Circle cir0(0, 0, 5, "cir0");
@@ -83,7 +95,7 @@ TEST (Sort, sortByDecreasingArea) {
 	shapesList.push_back(&cir0);
 	shapesList.push_back(&rect);
 	shapesList.push_back(&tri);
-
+*/
 	Sort::sortByDecreasingArea(&shapesList);
 
 	std::list<Shape *>::iterator it;
@@ -94,6 +106,7 @@ TEST (Sort, sortByDecreasingArea) {
 }
 
 TEST (Sort, sortByIncreasingCompactness) {
+	/*
 	Rectangle rect(0, 0, 5, 5, "rect");
 
 	Circle cir0(0, 0, 5, "cir0");
@@ -105,9 +118,10 @@ TEST (Sort, sortByIncreasingCompactness) {
 	shapesList.push_back(&cir0);
 	shapesList.push_back(&rect);
 	shapesList.push_back(&tri);
+*/
 
 	Sort::sortByIncreasingCompactness(&shapesList);
-
+	
 	std::list<Shape *>::iterator it;
 	it = shapesList.begin();
 	ASSERT_EQ(&tri, *it++);
