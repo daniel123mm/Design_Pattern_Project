@@ -5,9 +5,9 @@ CFLAG = -std=gnu++0x
 
 hw1: main.o Shapes.o Media.o
 ifeq (${OS}, Windows_NT)
-	${CC} ${CFLAG} -o main main.o Shapes.o Media.o -lgtest
+	${CC} ${CFLAG} -o hw1 main.o Shapes.o Media.o -lgtest
 else
-	${CC} ${CFLAG} -o main main.o Shapes.o Media.o -lgtest -lpthread
+	${CC} ${CFLAG} -o hw1 main.o Shapes.o Media.o -lgtest -lpthread
 endif
 	
 main.o: main.cpp utSort.h $(INC_DIR)/Sort.h
@@ -21,5 +21,5 @@ clean:
 ifeq (${OS}, Windows_NT)
 	del *.o *.exe
 else
-	rm -f *.o exp
+	rm -f *.o hw1
 endif
