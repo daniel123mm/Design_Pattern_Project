@@ -22,6 +22,7 @@ TEST (Sort, sortByIncreasingPerimeter) {
 
 	std::list<Shape *>::iterator it;
 	it = shapesList.begin();
+
 	ASSERT_EQ(&tri,  *it++);
 	ASSERT_EQ(&rect, *it++);
 	ASSERT_EQ(&cir0, *it);
