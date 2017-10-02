@@ -8,7 +8,9 @@ using std::string;
 class Term{
 	public:
 		Term (string s):_symbol(s){}
-		bool match(Term n){return _symbol == n._symbol;}
+		string symbol(){
+			return _symbol;
+		}
 
 		
 	private:

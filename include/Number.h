@@ -2,30 +2,25 @@
 #define NUMBER_H
 #include <iostream>
 #include <string>
-//#include "Term.h"
+#include "Term.h"
 
 
 
 using std::string;
 using std::to_string;
 
-class Number { 
+class Number :public Term{ 
 	public:
-		//Number (int n):Term(_symbol), _num(n){}//_symbol = to_string(_num);}
-		Number(string n):_symbol(n){}
+		Number (int n) : Term(to_string(n)), _num(n){}
 		string value(){
 			//_symbol = to_string(_num);
-			return _symbol;
+			return symbol();
 		}
-		string symbol(){
-			//_symbol = to_string(_num);
-			return _symbol;
-		}
-		bool match(Number n){return _symbol == n._symbol;}
+	
+		bool match(Term *t){return symbol() == t->symbol();}
 		
 	private:
 		int _num;
-		string _symbol;
 };
 
 #endif

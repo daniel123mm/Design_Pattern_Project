@@ -5,10 +5,10 @@
 
 using std::string;
 
-class Atom {
+class Atom : public Term{
 	public:
-		Atom (string s):_symbol(s) {}
-		bool match(Atom a){return _symbol == a.symbol;}
+		Atom (string s): Term(s) {}
+		bool match(Term *t){return symbol() == t->symbol();}
 	
 };
 
