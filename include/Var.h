@@ -1,7 +1,7 @@
 #ifndef VAR_H
 #define VAR_H
 #include <string>
-#include "Term.h"
+
 
 
 
@@ -13,7 +13,7 @@ class Var :public Term{
 		Var (string s) : Term(s){}
 		bool match(Term *t){
 			if(assignable){
-				symbol() = t->symbol();
+				this->setSymbol(t->symbol());
 				assignable = false;
 				return true;
 			}else{
