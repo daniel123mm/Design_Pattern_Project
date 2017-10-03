@@ -3,7 +3,7 @@
 #include "include/Number.h"
 #include "include/Term.h"
 #include "include/Atom.h"
-#include "include/Var.h"
+#include "include/Variable.h"
 #include <iostream>
 using namespace std;
 
