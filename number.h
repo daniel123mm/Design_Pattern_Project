@@ -2,7 +2,7 @@
 #define NUMBER_H
 #include <iostream>
 #include <string>
-#include "Term.h"
+#include "term.h"
 
 
 

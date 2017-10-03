@@ -10,8 +10,8 @@ else
 	g++ -o hw2 main.o -lgtest -lpthread
 endif
 	
-main.o: main.cpp  utTerm.h $(INC_DIR)/Number.h $(INC_DIR)/Term.h $(INC_DIR)/Atom.h $(INC_DIR)/Variable.h 
-	g++ -std=gnu++0x -c main.cpp
+main.o: main.cpp  utTerm.h number.h term.h atom.h variable.h 
+	g++ -std=gnu++0x -c main.cpp 
 clean:	
 ifeq (${OS}, Windows_NT)
 	del *.o *.exe

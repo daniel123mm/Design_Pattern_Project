@@ -1,9 +1,9 @@
 #ifndef UTTERM_H
 #define UTTERM_H
-#include "include/Number.h"
-#include "include/Term.h"
-#include "include/Atom.h"
-#include "include/Variable.h"
+#include "number.h"
+#include "term.h"
+#include "atom.h"
+#include "variable.h"
 #include <iostream>
 using namespace std;
 
