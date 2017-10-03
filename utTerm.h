@@ -100,7 +100,7 @@ TEST (Var, matchSuccessToNumber) {
 	Var X("X");
 	Number num(5);
 	ASSERT_TRUE(X.match(num));
-	ASSERT_EQ("5",X.symbol());
+	ASSERT_EQ("5",X.value());
 }
 
 // ?- X=25, X= 100.
@@ -119,11 +119,8 @@ TEST (Var, matchSuccessToAtomThenFailureToNumber) {
 	Var X("X");
 	Atom tom("tom");
 	Number num(25);
-	//cout << X.symbol() << endl;
 	ASSERT_TRUE(X.match(tom));
-	//cout << X.symbol() << endl;
 	ASSERT_FALSE(X.match(num));
-	//cout << X.symbol() << endl;
 }
 //?- tom=X, 25=X.
 //false.
@@ -131,11 +128,8 @@ TEST (Var, matchSuccessToAtomThenFailureToNumber2) {
 	Var X("X");
 	Atom tom("tom");
 	Number num(25);
-	//cout << X.symbol() << endl;
 	ASSERT_TRUE(tom.match(X));
-	//cout << X.symbol() << endl;
 	ASSERT_FALSE(X.match(num));
-	//cout << X.symbol() << endl;
 }
 //?- X=tom, X=tom.
 //true.
