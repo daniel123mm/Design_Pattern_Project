@@ -23,28 +23,28 @@ TEST (Number, symbol) {
 TEST (Number, matchSuccess) {
 	Number num1(25);
 	Number num2(25);
-	ASSERT_TRUE(num1.match(&num2));
+	ASSERT_TRUE(num1.match(num2));
 }
 //?- 25=0.
 //false.
 TEST (Number, matchFailureDiffValue) {
 	Number num1(25);
 	Number num2(0);
-	ASSERT_FALSE(num1.match(&num2));
+	ASSERT_FALSE(num1.match(num2));
 }
 //?- 25=tom.
 //false.
 TEST (Number, matchFailureDiffConstant) {
 	Number num1(25);
 	Atom tom("tom");
-	ASSERT_FALSE(num1.match(&tom));
+	ASSERT_FALSE(num1.match(tom));
 }
 //?- 25=X.
 //true.
 TEST (Number, matchSuccessToVar) {
 	Number num1(25);
 	Var X("X");
-	ASSERT_TRUE(num1.match(&X));
+	ASSERT_TRUE(num1.match(X));
 	//cout << X.symbol() << endl;
 }
 
@@ -53,7 +53,7 @@ TEST (Number, matchSuccessToVar) {
 TEST (Atom, matchFailureDiffConstant) {
 	Atom tom("tom");
 	Number num1(25);
-	ASSERT_FALSE(tom.match(&num1));
+	ASSERT_FALSE(tom.match(num1));
 }
 
 // ?- tom = X.
@@ -62,7 +62,7 @@ TEST (Atom, matchSuccessToVar) {
 	Atom tom("tom");
 	Var X("X");
 	//cout << X.symbol() << endl;
-	ASSERT_TRUE(tom.match(&X));
+	ASSERT_TRUE(tom.match(X));
 	ASSERT_EQ("tom",X.symbol());
 	//cout << X.symbol() << endl;
 	
@@ -74,9 +74,9 @@ TEST (Atom, matchSuccessToVarInstantedToDiffConstant) {
 	Atom tom("tom");
 	Var X("X");
 	//cout << X.symbol() << endl;
-	ASSERT_TRUE(X.match(&tom));
+	ASSERT_TRUE(X.match(tom));
 	//cout << X.symbol() << endl;
-	ASSERT_TRUE(tom.match(&X));
+	ASSERT_TRUE(tom.match(X));
 	//cout << X.symbol() << endl;
 	ASSERT_EQ("tom",X.symbol());
 }
@@ -88,9 +88,9 @@ TEST (Atom, matchFailureToVarInstantedToDiffConstant) {
 	Atom tom("tom");
 	Atom jerry("jerry");
 	//cout << X.symbol() << endl;
-	ASSERT_TRUE(X.match(&jerry));
+	ASSERT_TRUE(X.match(jerry));
 	//cout << X.symbol() << endl;
-	ASSERT_FALSE(tom.match(&X));
+	ASSERT_FALSE(tom.match(X));
 	//cout << X.symbol() << endl;
 }
 
@@ -99,7 +99,7 @@ TEST (Atom, matchFailureToVarInstantedToDiffConstant) {
 TEST (Var, matchSuccessToNumber) {
 	Var X("X");
 	Number num(5);
-	ASSERT_TRUE(X.match(&num));
+	ASSERT_TRUE(X.match(num));
 	ASSERT_EQ("5",X.symbol());
 }
 
@@ -109,8 +109,8 @@ TEST (Var, matchFailureToTwoDiffNumbers) {
 	Var X("X");
 	Number num1(25);
 	Number num2(100);
-	ASSERT_TRUE(X.match(&num1));
-	ASSERT_FALSE(X.match(&num2));
+	ASSERT_TRUE(X.match(num1));
+	ASSERT_FALSE(X.match(num2));
 }
 
 // ?- X=tom, X= 25.
@@ -120,9 +120,9 @@ TEST (Var, matchSuccessToAtomThenFailureToNumber) {
 	Atom tom("tom");
 	Number num(25);
 	//cout << X.symbol() << endl;
-	ASSERT_TRUE(X.match(&tom));
+	ASSERT_TRUE(X.match(tom));
 	//cout << X.symbol() << endl;
-	ASSERT_FALSE(X.match(&num));
+	ASSERT_FALSE(X.match(num));
 	//cout << X.symbol() << endl;
 }
 //?- tom=X, 25=X.
@@ -132,9 +132,9 @@ TEST (Var, matchSuccessToAtomThenFailureToNumber2) {
 	Atom tom("tom");
 	Number num(25);
 	//cout << X.symbol() << endl;
-	ASSERT_TRUE(tom.match(&X));
+	ASSERT_TRUE(tom.match(X));
 	//cout << X.symbol() << endl;
-	ASSERT_FALSE(X.match(&num));
+	ASSERT_FALSE(X.match(num));
 	//cout << X.symbol() << endl;
 }
 //?- X=tom, X=tom.
@@ -142,7 +142,7 @@ TEST (Var, matchSuccessToAtomThenFailureToNumber2) {
 TEST(Var, reAssignTheSameAtom){
 	Atom tom("tom");
 	Var X("X");
-	ASSERT_TRUE(X.match(&tom));
-	ASSERT_TRUE(X.match(&tom));
+	ASSERT_TRUE(X.match(tom));
+	ASSERT_TRUE(X.match(tom));
 }
 #endif

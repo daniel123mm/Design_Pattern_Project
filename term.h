@@ -14,7 +14,7 @@ class Term{
 		virtual bool isVar(){
 			//return _var;
 		}
-		virtual bool match(Term *t){
+		virtual bool match(Term &t){
 			
 		}
 

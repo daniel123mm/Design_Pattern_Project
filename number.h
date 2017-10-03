@@ -20,11 +20,11 @@ class Number :public Term{
 			return false;
 		}
 		
-		bool match(Term *t){
-			if(t->isVar()){
-				return t->match(this);
+		bool match(Term &t){
+			if(t.isVar()){
+				return t.match(*this);
 			}
-			return symbol() == t->symbol();
+			return symbol() == t.symbol();
 			 
 		}
 		
