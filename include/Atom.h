@@ -8,7 +8,16 @@ using std::string;
 class Atom : public Term{
 	public:
 		Atom (string s): Term(s) {}
-		bool match(Term *t){return symbol() == t->symbol();}
+		bool isVar(){
+			return false;
+		}
+		bool match(Term *t){
+			if(t->isVar()){
+				return t->match(this);
+			}
+			return symbol() == t->symbol();
+		}
+	private:
 	
 };
 

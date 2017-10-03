@@ -16,8 +16,17 @@ class Number :public Term{
 			//_symbol = to_string(_num);
 			return symbol();
 		}
-	
-		bool match(Term *t){return symbol() == t->symbol();}
+		bool isVar(){
+			return false;
+		}
+		
+		bool match(Term *t){
+			if(t->isVar()){
+				return t->match(this);
+			}
+			return symbol() == t->symbol();
+			 
+		}
 		
 	private:
 		int _num;
