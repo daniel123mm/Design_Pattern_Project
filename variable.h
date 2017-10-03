@@ -1,7 +1,7 @@
 #ifndef VAR_H
 #define VAR_H
 #include <string>
-
+#include "term.h"
 
 
 
