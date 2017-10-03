@@ -8,11 +8,15 @@
 using std::string;
 using std::to_string;
 
-class Var :public Term{ 
+class Var : public Term{ 
 	public:
 		Var (string s) : Term(s),assignValue(s){}
 		
 		string symbol(){
+			return assignValue;
+		}
+		
+		string value(){
 			return assignValue;
 		}
 		bool isVar(){
