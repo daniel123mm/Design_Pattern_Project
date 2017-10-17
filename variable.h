@@ -38,7 +38,7 @@ class Variable : public Term{
 					v->have_match[i]->assignable = false;
 					
 				}	
-				findValue(v->have_match[i],t);
+				findValue(v->have_match[i],t); 
 			}
 
 		}
