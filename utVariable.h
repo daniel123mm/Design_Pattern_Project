@@ -43,8 +43,6 @@ TEST (Variable, varY_to_varX_and_num1_to_varX) {
 	Variable Y("Y");
 	Number num(1);
 	X.match(Y);
-	//std::cout << X.value() << std::endl;
-	//std::cout << Y.value() << std::endl;
 	X.match(num);
 	//std::cout << X.value() << std::endl;
 	//std::cout << Y.value() << std::endl;
