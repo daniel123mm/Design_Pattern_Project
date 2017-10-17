@@ -64,7 +64,7 @@ class Variable : public Term{
 				if(!assignable && !var->assignable){
 					return value() == t.value();
 				}
-				return true;
+				return true; 
 					
 			}
 			if(assignable && !var){
