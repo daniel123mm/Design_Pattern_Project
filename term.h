@@ -11,7 +11,6 @@ class Term{
 		virtual string value() const{return symbol();}
 		virtual bool match(Term &t){return symbol() == t.symbol();}
 		virtual bool isVar(){return false;} 
-		virtual void setValue(string s){}
 
 };
 
