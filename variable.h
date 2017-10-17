@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include "term.h"
+#include "struct.h"
 
 
 
@@ -13,26 +14,25 @@ class Variable : public Term{
 	public:
 		Variable (string s) :_symbol(s),_assignValue(s){}
 		
-		void setValue (string s){
-			_assignValue = s;
-		}
 		string symbol() const{
 			return _symbol;
 		}
 		
 		string value() const{
 			return _assignValue;
+			//return termValue->value();
 		}
+
 		bool isVar(){
 			return true;
 		}
 	
-	    void findValue(Variable* v,Term &t){
+	    void findValue(Variable* v,Term *t){
 			for(unsigned int i = 0;i < v->have_match.size();i++){
 				if(v->have_match[i]->assignable == false)
 					break;
 				else{
-					v->have_match[i]->_assignValue = t.value();
+					v->have_match[i]->_assignValue = t->value();
 					v->have_match[i]->assignable = false;
 					
 				}	
@@ -42,21 +42,22 @@ class Variable : public Term{
 		}
 		
 		bool match(Term &t){
-			Variable *var = dynamic_cast<Variable*> (&t);
+			Variable *var = dynamic_cast<Variable*> (&t); 
 			if(var){
-				//_symbol = var->symbol();
 				have_match.push_back(var);
                 var->have_match.push_back(this);
+				if(assignable && var->assignable){
+					string s = _assignValue;
+					var->_assignValue = _assignValue;
+					var->_assignValue = s; 
+				}
 				if(assignable && !var->assignable){
-					_assignValue = var->value();
-					assignable = false;
+					findValue(var,var);
 					return true;
 				}
 				if(!assignable && var->assignable){
-					var->value() = _assignValue;
-					var->assignable = false;
+					findValue(this,this);
 					return true;
-					//findValue(var,this);
 				}
 				if(!assignable && !var->assignable){
 					return value() == t.value();
@@ -65,9 +66,10 @@ class Variable : public Term{
 					
 			}
 			if(assignable && !var){
+				//termValue = &t;
 				_assignValue = t.value();
 				assignable = false;
-				findValue(this,t);
+				findValue(this,&t);
 				return true;
 			}else{
                 return value() == t.value();
@@ -80,10 +82,7 @@ class Variable : public Term{
 		string _symbol;
 		string _assignValue;
 		std::vector <Variable *> have_match;
-		bool has_var = false;
-		
-		
-		
+		Term *termValue;
 		
 };
 

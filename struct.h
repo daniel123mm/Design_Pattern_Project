@@ -28,8 +28,11 @@ class Struct : public Term{
 				}
 				return true;
 			}
-			return false;
-			
+			if(t.isVar()){
+				return t.match(*this);
+			}
+			return value() == t.value();
+
 		}
 		
 		string symbol() const{

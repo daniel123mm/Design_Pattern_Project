@@ -20,16 +20,11 @@ class Number :public Term{
 		
 		string symbol() const {return _num;}
 		
-		/*
-		bool isVar(){
-			return false;
-		}
-		*/
 		bool match(Term &t){
 			if(t.isVar()){
 				return t.match(*this);
 			}
-			return symbol() == t.symbol();
+			return value() == t.value();
 			 
 		}
 		
