@@ -43,11 +43,11 @@ TEST (Variable, varY_to_varX_and_num1_to_varX) {
 	Variable Y("Y");
 	Number num(1);
 	X.match(Y);
-	std::cout << X.value() << std::endl;
-	std::cout << Y.value() << std::endl;
+	//std::cout << X.value() << std::endl;
+	//std::cout << Y.value() << std::endl;
 	X.match(num);
-	std::cout << X.value() << std::endl;
-	std::cout << Y.value() << std::endl;
+	//std::cout << X.value() << std::endl;
+	//std::cout << Y.value() << std::endl;
 	ASSERT_EQ("1", Y.value());
 }
   
@@ -72,9 +72,9 @@ TEST (Variable, varX_match_varX_and_num1_to_varX) {
 	Variable X("X");
 	Number num(1);
 	X.match(X);
-	std::cout << X.value() << std::endl;
+	//std::cout << X.value() << std::endl;
 	X.match(num);
-	std::cout << X.value() << std::endl;
+	//std::cout << X.value() << std::endl;
 	ASSERT_EQ("1", X.value());
 }
 
@@ -85,11 +85,11 @@ TEST (Variable, num1_to_varY_and_varX_match_varY) {
 	Variable Y("Y");
 	Number num(1);
 	Y.match(num);
-	std::cout << X.value() << std::endl;
-	std::cout << Y.value() << std::endl;
+	//std::cout << X.value() << std::endl;
+	//std::cout << Y.value() << std::endl;
 	X.match(Y);
-	std::cout << X.value() << std::endl;
-	std::cout << Y.value() << std::endl;
+	//std::cout << X.value() << std::endl;
+	//std::cout << Y.value() << std::endl;
 	ASSERT_EQ("1", X.value());
 }
 
@@ -102,13 +102,13 @@ TEST (Variable, num1_to_varZ_to_varY_to_varX) {
 	Number num(1);
 	X.match(Y);
 	Y.match(Z);
-	std::cout << X.value() << std::endl;
-	std::cout << Y.value() << std::endl;
-	std::cout << Z.value() << std::endl;
+	//std::cout << X.value() << std::endl;
+	//std::cout << Y.value() << std::endl;
+	//std::cout << Z.value() << std::endl;
 	Z.match(num);
-	std::cout << X.value() << std::endl;
-	std::cout << Y.value() << std::endl;
-	std::cout << Z.value() << std::endl;
+	//std::cout << X.value() << std::endl;
+	//std::cout << Y.value() << std::endl;
+	//std::cout << Z.value() << std::endl;
 	ASSERT_EQ("1", X.value());
 	ASSERT_EQ("1", Y.value());
 	ASSERT_EQ("1", Z.value());
@@ -123,13 +123,13 @@ TEST (Variable, num1_to_varZ_to_varX_and_varY_to_varX) {
 	Number num(1);
 	X.match(Y);
 	X.match(Z);
-	std::cout << X.value() << std::endl;
-	std::cout << Y.value() << std::endl;
-	std::cout << Z.value() << std::endl;
+	//std::cout << X.value() << std::endl;
+	//std::cout << Y.value() << std::endl;
+	//std::cout << Z.value() << std::endl;
 	Z.match(num);
-	std::cout << X.value() << std::endl;
-	std::cout << Y.value() << std::endl;
-	std::cout << Z.value() << std::endl;
+	//std::cout << X.value() << std::endl;
+	//std::cout << Y.value() << std::endl;
+	//std::cout << Z.value() << std::endl;
 	ASSERT_EQ("1", X.value());
 	ASSERT_EQ("1", Y.value());
 	ASSERT_EQ("1", Z.value());
@@ -149,7 +149,7 @@ TEST (Variable, Struct1) {
 	ASSERT_EQ("Y",Y.symbol());
 	ASSERT_EQ("s(X)",Y.value());
 }
-/*
+
 // Give there is a Struct s contains Variable X
 // And another Variable Y
 // When Y matches Struct s
@@ -164,9 +164,9 @@ TEST (Variable, Struct2) {
 	Struct s(Atom("s"), v);
 	Y.match(s);
 	X.match(teddy);
-	std::cout << s.value() << std::endl;
+	//std::cout << s.value() << std::endl;
 	ASSERT_EQ("Y",Y.symbol());
 	ASSERT_EQ("s(teddy)",Y.value());
 }
-*/
+
 #endif

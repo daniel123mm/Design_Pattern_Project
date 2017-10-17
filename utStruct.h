@@ -4,13 +4,14 @@
 #include "number.h"
 #include "variable.h"
 
+/*
 TEST(Variable, atom){
   Atom tom("tom");
   Variable X("X");
   X.match(tom);
   ASSERT_EQ( "tom", X.value());
 }
-
+*/
 TEST(Struct, hobby)
 {
   Atom tom("tom");

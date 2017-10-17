@@ -19,8 +19,10 @@ class Variable : public Term{
 		}
 		
 		string value() const{
-			return _assignValue;
-			//return termValue->value();
+            if (assignable) {
+                return _assignValue;
+            }
+			return termValue->value();
 		}
 
 		bool isVar(){
@@ -32,7 +34,7 @@ class Variable : public Term{
 				if(v->have_match[i]->assignable == false)
 					break;
 				else{
-					v->have_match[i]->_assignValue = t->value();
+                    v->have_match[i]->termValue = t;//t->value();
 					v->have_match[i]->assignable = false;
 					
 				}	
@@ -48,8 +50,8 @@ class Variable : public Term{
                 var->have_match.push_back(this);
 				if(assignable && var->assignable){
 					string s = _assignValue;
-					var->_assignValue = _assignValue;
-					var->_assignValue = s; 
+					_assignValue = var->_assignValue;
+					var->_assignValue = s;
 				}
 				if(assignable && !var->assignable){
 					findValue(var,var);
@@ -66,8 +68,8 @@ class Variable : public Term{
 					
 			}
 			if(assignable && !var){
-				//termValue = &t;
-				_assignValue = t.value();
+				termValue = &t;
+				//_assignValue = t.value();
 				assignable = false;
 				findValue(this,&t);
 				return true;
