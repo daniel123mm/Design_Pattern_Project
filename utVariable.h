@@ -90,7 +90,7 @@ TEST (Variable, num1_to_varY_and_varX_match_varY) {
 	X.match(Y);
 	//std::cout << X.value() << std::endl;
 	//std::cout << Y.value() << std::endl;
-	ASSERT_EQ("1", X.value());
+	ASSERT_EQ("1", X.value()); 
 }
 
 // ?- X=Y, Y=Z, Z=1
