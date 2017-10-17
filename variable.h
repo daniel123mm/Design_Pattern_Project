@@ -7,7 +7,7 @@
 
 
 using std::string;
-using std::to_string;
+using std::to_string; 
 
 class Variable : public Term{ 
 	public:
