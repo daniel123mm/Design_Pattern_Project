@@ -48,13 +48,12 @@ class Variable : public Term{
 			if(var){
 				have_match.push_back(var);
                 var->have_match.push_back(this);
-                /*
+                
 				if(assignable && var->assignable){
-					string s = _assignValue;
+					//string s = _assignValue;
 					_assignValue = var->_assignValue;
-					var->_assignValue = s;
+					//var->_assignValue = s;
 				}
-                 */
 				if(assignable && !var->assignable){
 					findValue(var,var);
 					return true;
