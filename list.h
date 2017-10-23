@@ -14,14 +14,14 @@ public:
   
   Term * head() const{
 	if(_elements.empty()){
-		throw "Accessing head in an empty list";
+		throw string("Accessing head in an empty list");
 	}
 	return _elements[0];
   }
   
   List * tail() const{
 	if(_elements.empty()){
-		throw "Accessing tail in an empty list";
+		throw string("Accessing tail in an empty list");
 	}
 	std::vector<Term *> v;
 	for(unsigned int i = 1;i < _elements.size();i++){

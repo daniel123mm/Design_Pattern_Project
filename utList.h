@@ -224,7 +224,7 @@ TEST (List, emptyExecptionOfHead) {
   string s;
   try{
 	s = l.head()->value();
-  }catch(const char* msg){
+  }catch(const string msg){
 	ASSERT_EQ("Accessing head in an empty list",msg);
   } 
 }
@@ -237,7 +237,7 @@ TEST (List, emptyExecptionOfTail) {
   string s;
   try{
 	s = l.tail()->value();
-  }catch(const char* msg){
+  }catch(const string msg){
 	ASSERT_EQ("Accessing tail in an empty list",msg);
   }
    
