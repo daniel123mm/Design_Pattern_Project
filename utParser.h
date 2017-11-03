@@ -50,7 +50,6 @@ TEST_F(ParserTest, createTerms)
 {
   Scanner scanner("s()");
   Parser parser(scanner);
-  //std :: cout << parser.createTerm()->symbol() << std::endl;
   ASSERT_EQ("s()", parser.createTerm()->symbol());
 }
 
