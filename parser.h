@@ -31,12 +31,12 @@ public:
             return new Struct(*atom, terms);
         }
         else if(_currentToken == '('){
-			_scanner.rewind(1);
+			_scanner.fallback(1);
             return new Struct(*atom);
         }else if(_currentToken == ']'){
             throw string("unexpected token");
         }else
-            _scanner.rewind(1);
+            _scanner.fallback(1);
         
         return atom;
     }else if(token == '['){
@@ -46,7 +46,7 @@ public:
         }else if(_currentToken == ')'){
             throw string("unexpected token");
         }else{
-            _scanner.rewind(1);
+            _scanner.fallback(1);
 			return new List();
 		}
 	}
@@ -60,7 +60,7 @@ public:
     if(term)
       args.push_back(term);
     else
-      _scanner.rewind(1);
+      _scanner.fallback(1);
     while((_currentToken = _scanner.nextToken()) == ',') {
       args.push_back(createTerm());
     }

@@ -80,7 +80,7 @@ public:
     return buffer[pos++];
   }
   
-  void rewind(int p){
+  void fallback(int p){
 	pos -= p;
   }
 

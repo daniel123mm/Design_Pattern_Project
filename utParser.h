@@ -48,7 +48,7 @@ TEST_F(ParserTest, createArgs)
 
 TEST_F(ParserTest, createTerms)
 {
-  Scanner scanner("s()");
+  Scanner scanner("s( )");
   Parser parser(scanner);
   ASSERT_EQ("s()", parser.createTerm()->symbol());
 }
