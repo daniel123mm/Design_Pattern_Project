@@ -1,4 +1,4 @@
-#hw2 makefile
+#hw5 makefile
 INC_DIR = include
 
 all: hw5
