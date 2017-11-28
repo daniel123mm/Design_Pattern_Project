@@ -23,20 +23,20 @@ public:
     int token = _scanner.nextToken();
     _currentToken = token;
     if(token == VAR){
-		Term *variable = new Variable(symtable[_scanner.tokenValue()].first);
-		if(sign == 1){
-        for(int i = 0;i < (int)_findTerms.size();i++){
-					Struct *st = dynamic_cast<Struct *> (_findTerms[i]);
-					if(st){
-						variable = findStructArgs(st,variable);
-					}else{
-						if(_findTerms[i]->symbol() == variable->symbol()){
-							variable = _findTerms[i];
-						}
-          }
+        Term *variable = new Variable(symtable[_scanner.tokenValue()].first);
+        if(sign == 1){
+            for(int i = 0;i < (int)_findTerms.size();i++){
+                Struct *st = dynamic_cast<Struct *> (_findTerms[i]);
+                if(st){
+                    variable = findStructArgs(st,variable);
+                }else{
+                    if(_findTerms[i]->symbol() == variable->symbol()){
+                        variable = _findTerms[i];
+                    }
+                }
+            }
         }
-     }
-      return variable;
+        return variable;
     }else if(token == NUMBER){
       return new Number(_scanner.tokenValue());
     }else if(token == ATOM || token == ATOMSC){
