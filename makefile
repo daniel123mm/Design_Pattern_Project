@@ -16,7 +16,7 @@ main.o: main.cpp  utIterator.h term.h atom.h struct.h variable.h number.h scanne
 term.o: term.cpp term.h 
 	g++ -std=c++11 -c term.cpp
 
-list.o: list.cpp list.h
+list.o: list.cpp list.h 
 	g++ -std=c++11 -c list.cpp
 
 struct.o: struct.cpp struct.h
